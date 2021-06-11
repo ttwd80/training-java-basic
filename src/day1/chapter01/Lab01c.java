@@ -6,7 +6,7 @@ public class Lab01c {
     private static int c;
 
     public static void main(String[] args) {
-        Lab03 lab = new Lab03();
+        Lab01c lab = new Lab01c();
         lab.objectScopeAndFunctionScope();
         System.out.println();
         lab.classScopeAndObjectScope();
@@ -17,7 +17,7 @@ public class Lab01c {
 
     private void hiddenVariable() {
         System.out.println("Hidden Variable");
-        Lab03 lab = new Lab03();
+        Lab01c lab = new Lab01c();
         lab.a = 10;
         lab.overlap1(20);
         System.out.println("a = " + lab.a);
@@ -39,8 +39,8 @@ public class Lab01c {
 
     private void classScopeAndObjectScope() {
         System.out.println("Class Scope and Object Scope");
-        Lab03 x = new Lab03();
-        Lab03 y = new Lab03();
+        Lab01c x = new Lab01c();
+        Lab01c y = new Lab01c();
         x.a = 10;
         y.a = 20;
         System.out.println("x.a = " + x.a + ", y.a = " + y.a);
