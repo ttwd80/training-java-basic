@@ -58,13 +58,13 @@ public class Lab03 {
         List<Integer> d = a;
 
         //different object vs same object
-        System.out.println("a == b = " + (a == b)  + ", a == d = " + (a == d));
+        System.out.println("a == b = " + (a == b) + ", a == d = " + (a == d));
 
         //different value
-        System.out.println("a == c = " + (a == c)  + ", a.equals(c) = " + (a.equals(c)));
+        System.out.println("a == c = " + (a == c) + ", a.equals(c) = " + (a.equals(c)));
 
         //same value, different object
-        System.out.println("a == b = " + (a == b)  + ", a.equals(b) = " + (a.equals(b)));
+        System.out.println("a == b = " + (a == b) + ", a.equals(b) = " + (a.equals(b)));
 
     }
 

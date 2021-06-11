@@ -2,6 +2,7 @@ package day1.chapter06;
 
 public class Lab06 {
     static int counter = 0;
+
     public static void main(String[] args) {
         Lab06 lab = new Lab06();
         lab.demo();
@@ -52,6 +53,7 @@ public class Lab06 {
     static void static1() {
         System.out.println("in static method static1");
     }
+
     static void static2() {
         System.out.println("in static method static2");
         // nonStatic1(); //error
