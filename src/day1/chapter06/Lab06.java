@@ -1,5 +1,6 @@
 package day1.chapter06;
 
+import day1.chapter06.ocean.Fish;
 import day1.chapter06.ocean.Shark;
 import day1.chapter06.ocean.Whale;
 
@@ -28,6 +29,49 @@ public class Lab06 extends Whale {
         applyAccessModifiers();
         System.out.println();
 
+        System.out.println("Apply encapsulation principles to a class");
+        encapsulation();
+        System.out.println();
+
+        System.out.println("Determine the effect upon object references and primitive values when they are passed into methods that change the values");
+        passingArguments();
+    }
+
+    private void passingArguments() {
+        int a = 89;
+        System.out.println("Reassign primitive");
+        System.out.println("before call: a = " + a);
+        reassignPrimitive(a);
+        System.out.println("after call: a = " + a);
+
+        Fish f = new Fish("Pufferfish", true, true);
+        System.out.println("Reassign object");
+        System.out.println("before call: f = " + f);
+        reassignObject(f);
+        System.out.println("after call: f = " + f);
+
+        System.out.println("Mutate object");
+        System.out.println("before call: f = " + f);
+        mutateObject(f);
+        System.out.println("after call: f = " + f);
+    }
+
+    private void mutateObject(Fish f) {
+        f.setName("Goldfish");
+        f.setPoisonous(false);
+        f.setSaltwater(false);
+    }
+
+    private void reassignObject(Fish f) {
+        f = new Fish("Goldfish", false, false);
+    }
+
+    private void reassignPrimitive(int a) {
+        a = 100;
+    }
+
+    private void encapsulation() {
+        Fish fish = new Fish("Clownfish", false, true);
     }
 
     private void applyAccessModifiers() {
