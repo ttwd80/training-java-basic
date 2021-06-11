@@ -13,6 +13,35 @@ public class Lab07 {
         System.out.println("Polymorphism");
         polymorphism();
         System.out.println();
+
+        System.out.println("Develop code that overrides methods");
+        override();
+
+    }
+
+    private void override() {
+        Fish fish = new Fish();
+
+        System.out.println("use base class method, no override");
+        //eat is defined in Animal
+        fish.eat();
+
+        System.out.println("use method defined only in subclass, no override");
+        //swim is defined in Fish and not Animal
+        fish.swim();
+
+        System.out.println("use method defined in both parent class and subclass, with annotation");
+        //sleep is defined in both Animal and Fish and has @Override
+        fish.sleep();
+
+        System.out.println("use method defined in both parent class and subclass, without annotation");
+        //breathe is defined in both Animal and Fish and does not have @Override
+        //still considered override, @Override should be added, not not mandatory
+        fish.breathe();
+
+        //not adding @Override to an override method is allowed
+        //adding @Override to a non-override method will result in a compilation error
+
     }
 
     private void notPolymorphism() {
