@@ -1,4 +1,4 @@
-# Working with Java Data Types
+# Working With Java Data Types
 
 ## Declare and initialize variables (including casting of primitive data types)
 
@@ -6,4 +6,6 @@
 
 ## Know how to read or write to object fields
 
-## Develop code that uses wrapper classes such as Boolean, Double, and Integer
+## Explain an Object's Lifecycle (creation, "dereference by reassignment" and garbage collection)
+
+## Develop code that uses wrapper classes such as Boolean, Double, and Integer  
