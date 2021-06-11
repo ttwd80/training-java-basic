@@ -52,7 +52,7 @@ jobs:
     - name: Build Day 1 - Lesson 06
       run: |
         cd src
-        javac day1/chapter06/Country.java; java day1.chapter06.Country
-        javac day1/chapter06/Person.java; java day1.chapter06.Person
-        javac day1/chapter06/Planet.java; java day1.chapter06.Planet
+        javac day1/chapter06/Country.java
+        javac day1/chapter06/Person.java
+        javac day1/chapter06/Planet.java
         javac day1/chapter06/Lab06.java; java day1.chapter06.Lab06
