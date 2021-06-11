@@ -8,7 +8,7 @@ public class Lab02 {
     int value;
 
     public static void main(String[] args) {
-        Lab04 lab = new Lab04();
+        Lab02 lab = new Lab02();
         lab.demo();
     }
 
@@ -28,7 +28,7 @@ public class Lab02 {
     }
 
     void readWriteToObjectField() {
-        Lab04 lab = new Lab04();
+        Lab02 lab = new Lab02();
 
         System.out.println("Reading from object field");
         System.out.println("lab.value = " + lab.value);
