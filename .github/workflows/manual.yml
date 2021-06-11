@@ -38,3 +38,8 @@ jobs:
       run: |
         cd src
         javac day1/chapter03/Lab03.java; java day1.chapter03.Lab03
+
+    - name: Build Day 1 - Lesson 04
+      run: |
+        cd src
+        javac day1/chapter04/Lab04.java; java day1.chapter04.Lab04

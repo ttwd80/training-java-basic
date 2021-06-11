@@ -6,4 +6,4 @@
 
 ## Create if and if/else and ternary constructs
 
-## Use a switch statement 
+## Use a switch statement
