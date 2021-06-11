@@ -32,4 +32,4 @@ jobs:
     - name: Build Day 1 - Lesson 02
       run: |
         cd src
-        javac day1/chapter02/Lab02.java; java day1.chapter01.Lab02
+        javac day1/chapter02/Lab02.java; java day1.chapter02.Lab02
