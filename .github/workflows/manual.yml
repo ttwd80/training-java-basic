@@ -56,3 +56,10 @@ jobs:
         javac day1/chapter06/Person.java
         javac day1/chapter06/Planet.java
         javac day1/chapter06/Lab06.java; java day1.chapter06.Lab06
+
+    - name: Build Day 1 - Lesson 07
+      run: |
+        cd src
+        javac day1/chapter07/Animal.java
+        javac day1/chapter07/Fish.java
+        javac day1/chapter07/Lab07.java; java day1.chapter07.Lab07
