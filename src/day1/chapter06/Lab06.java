@@ -36,10 +36,12 @@ public class Lab06 extends Whale {
         Whale whale = new Whale();
 
         //public method, can be called from anywhere
+        System.out.println("Public method in a different class");
         animal.run();
 
         //protected scope, can be called by other classes in the same package or inherited class
         //other class in same package - valid
+        System.out.println("Protected method in a different class in the same package");
         animal.sleep();
 
         //protected scope, can be called by other classes in the same package or inherited class
@@ -51,9 +53,11 @@ public class Lab06 extends Whale {
         //whale.sleep() does not work
         //protected scope, can be called by other classes in the same package or inherited class
         //other class in different package, inherited - valid
+        System.out.println("Protected method in an inherited class");
         sleep();
 
         //default scope, can be called by other classes in the same package
+        System.out.println("Default scope in the same package");
         animal.climb();
 
         //default scope, cannot be called by other classes in different package
