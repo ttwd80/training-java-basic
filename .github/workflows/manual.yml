@@ -23,3 +23,5 @@ jobs:
         distribution: 'adopt'
     - name: Build Day 1 - Lesson 1
       run: cd src; javac day1/chapter01/Lab01a.java; java day1.chapter01.Lab01a
+      run: cd src; javac day1/chapter01/Lab01b.java; java day1.chapter01.Lab01b
+      run: cd src; javac day1/chapter01/Lab01c.java; java day1.chapter01.Lab01c
