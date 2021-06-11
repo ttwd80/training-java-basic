@@ -21,6 +21,31 @@ public class Lab07 {
         System.out.println("Differentiate between the type of a reference and the type of an object");
         typeOfAReferenceTypeOfAnObject();
         System.out.println();
+
+        System.out.println("Determine when casting is necessary");
+        castingIfNeeded();
+        System.out.println();
+    }
+
+    private void castingIfNeeded() {
+        System.out.println("Sending an Animal");
+        sleepAndMaybeSwim(new Animal());
+
+        System.out.println("Sending a Fish");
+        sleepAndMaybeSwim(new Fish());
+    }
+
+    private void sleepAndMaybeSwim(Animal animal) {
+        animal.sleep();
+
+        //can't call animal swim
+        //Cannot resolve method 'swim' in 'Animal'
+        //animal.swim();
+        
+        if (animal instanceof Fish) {
+            //casting
+            ((Fish) animal).swim();
+        }
     }
 
     private void typeOfAReferenceTypeOfAnObject() {
