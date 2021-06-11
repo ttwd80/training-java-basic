@@ -3,7 +3,7 @@ package day1.chapter02;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Lab04 {
+public class Lab02 {
 
     int value;
 
