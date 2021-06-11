@@ -15,6 +15,15 @@ public class Lab04 {
         System.out.println("Create an array of size 1_000_000");
         createMillion();
         System.out.println();
+
+        System.out.println("Index is zero based");
+        zeroBasedIndex();
+        System.out.println();
+    }
+
+    private void zeroBasedIndex() {
+        int[] a = {63, 88, 54, 92};
+        System.out.println("a[1] = " + a[1]);
     }
 
     private void createMillion() {
