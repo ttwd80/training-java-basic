@@ -16,7 +16,25 @@ public class Lab07 {
 
         System.out.println("Develop code that overrides methods");
         override();
+        System.out.println();
 
+        System.out.println("Differentiate between the type of a reference and the type of an object");
+        typeOfAReferenceTypeOfAnObject();
+        System.out.println();
+    }
+
+    private void typeOfAReferenceTypeOfAnObject() {
+        System.out.println("Sending an Animal");
+        process(new Animal());
+
+        System.out.println("Sending a Fish");
+        process(new Fish());
+    }
+
+    private void process(Animal animal) {
+        animal.eat();
+        animal.sleep();
+        animal.breathe();
     }
 
     private void override() {
