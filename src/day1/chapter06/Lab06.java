@@ -1,6 +1,9 @@
 package day1.chapter06;
 
-public class Lab06 {
+import day1.chapter06.ocean.Shark;
+import day1.chapter06.ocean.Whale;
+
+public class Lab06 extends Whale {
     static int counter = 0;
 
     public static void main(String[] args) {
@@ -20,6 +23,59 @@ public class Lab06 {
         System.out.println("Create and overload constructors; differentiate between default and user defined constructors");
         constructors();
         System.out.println();
+
+        System.out.println("Apply access modifiers");
+        applyAccessModifiers();
+        System.out.println();
+
+    }
+
+    private void applyAccessModifiers() {
+        Animal animal = new Animal();
+        Shark shark = new Shark();
+        Whale whale = new Whale();
+
+        //public method, can be called from anywhere
+        animal.run();
+
+        //protected scope, can be called by other classes in the same package or inherited class
+        //other class in same package - valid
+        animal.sleep();
+
+        //protected scope, can be called by other classes in the same package or inherited class
+        //other class in different package - invalid
+        //'sleep()' has protected access in 'day1.chapter06.ocean.Shark'
+        //shark.sleep();
+
+        //Calls Whale.sleep, because of inheritance
+        //whale.sleep() does not work
+        //protected scope, can be called by other classes in the same package or inherited class
+        //other class in different package, inherited - valid
+        sleep();
+
+        //default scope, can be called by other classes in the same package
+        animal.climb();
+
+        //default scope, cannot be called by other classes in different package
+        //'swim()' is not public in 'day1.chapter06.ocean.Shark'. Cannot be accessed from outside package
+        //shark.swim();
+
+        //default scope, cannot be called by other classes in different package, even if inherited
+        //'swim()' is not public in 'day1.chapter06.ocean.Whale'. Cannot be accessed from outside package
+        //whale.swim() won't work
+        //swim();
+
+        //private can't be called by other classes, even inherited ones
+        //'rest()' has private access in 'day1.chapter06.ocean.Whale'
+        //rest();
+
+        //private can't be called by other classes, even in the same package
+        //'rest()' has private access in 'day1.chapter06.Animal'
+        //animal.rest();
+
+        //private can't be called by other classes
+        //'rest()' has private access in 'day1.chapter06.ocean.Shark'
+        //shark.rest();
 
     }
 
