@@ -1,6 +1,6 @@
 package day1.chapter01;
 
-public class Lab03 {
+public class Lab01c {
     private int a;
     private int b;
     private static int c;
