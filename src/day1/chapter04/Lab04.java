@@ -19,6 +19,16 @@ public class Lab04 {
         System.out.println("Index is zero based");
         zeroBasedIndex();
         System.out.println();
+
+        System.out.println("Default element value");
+        defaultElementValue();
+    }
+
+    private void defaultElementValue() {
+        int[] a = new int[10];
+        Integer[] b = new Integer[10];
+        System.out.println("a[5] = " + a[5]);
+        System.out.println("b[5] = " + b[5]);
     }
 
     private void zeroBasedIndex() {
