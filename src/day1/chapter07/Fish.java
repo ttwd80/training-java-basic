@@ -1,6 +1,6 @@
 package day1.chapter07;
 
-public class Fish extends Animal{
+public class Fish extends Animal {
 
     @Override
     public void sleep() {
