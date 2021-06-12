@@ -22,6 +22,13 @@ public class Lab04 {
 
         System.out.println("Default element value");
         defaultElementValue();
+
+        System.out.println("Multi-dimensional array");
+        multiDimensional();
+    }
+
+    private void multiDimensional() {
+        int[][][][][][][][][][] a = new int[10][10][10][10][10][10][10][10][10][10];
     }
 
     private void defaultElementValue() {
