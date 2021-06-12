@@ -28,7 +28,7 @@ public class Lab04 {
     }
 
     private void multiDimensional() {
-        int[][][][][][][][][][] a = new int[10][10][10][10][10][10][10][10][10][10];
+        int[][][][][][][][][][] a = new int[2][2][2][2][2][2][2][2][2][2];
     }
 
     private void defaultElementValue() {
