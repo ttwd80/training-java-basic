@@ -13,6 +13,12 @@ public class Lab08 {
 
     private void checkedUncheckedErrors() {
         checkedExceptions();
+        uncheckedExceptions();
+    }
+
+    private void uncheckedExceptions() {
+        
+        uncheckedMethod1();
     }
 
     private void checkedExceptions() {
@@ -112,6 +118,28 @@ public class Lab08 {
         } catch (Exception e) {
         }
 
+        //not handling exception right away by using "throws"
+        method5();
+
+    }
+
+    private void method5() {
+        try {
+            method5a();
+        } catch (ExceptionA a) {
+        }
+    }
+
+    private void method5a() throws ExceptionA {
+        method5b();
+    }
+
+    private void method5b() throws ExceptionA {
+        method5c();
+    }
+
+    private void method5c() throws ExceptionA {
+        throw new ExceptionA();
     }
 
     //method1 declares it will throw an exception
@@ -142,5 +170,9 @@ public class Lab08 {
     private void method4() throws ExceptionA, ExceptionB, ExceptionC, ExceptionD{
         throw new ExceptionA();
     }
+
+    private void uncheckedMethod1() throws UncheckedExceptionA{
+    }
+
 
 }
