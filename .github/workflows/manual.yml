@@ -62,4 +62,13 @@ jobs:
         cd src
         javac day1/chapter07/Animal.java
         javac day1/chapter07/Fish.java
+        javac day1/chapter07/Actor.java
+        javac day1/chapter07/Artist.java
+        javac day1/chapter07/Comedian.java
+        javac day1/chapter07/AnnaKendrick.java
+        javac day1/chapter07/Bat.java
+        javac day1/chapter07/Car.java
+        javac day1/chapter07/EdSheeran.java
+        javac day1/chapter07/Tesla.java
+        javac day1/chapter07/Vellfire.java
         javac day1/chapter07/Lab07.java; java day1.chapter07.Lab07
