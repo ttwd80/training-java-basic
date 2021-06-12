@@ -25,6 +25,48 @@ public class Lab07 {
         System.out.println("Determine when casting is necessary");
         castingIfNeeded();
         System.out.println();
+
+        System.out.println("Use super and this to access objects and constructors");
+        superAndThis();
+        System.out.println();
+
+        System.out.println("Use abstract classes and interfaces");
+        abstractClassesAndInterfaces();
+    }
+
+    private void abstractClassesAndInterfaces() {
+        //you cannot create a new car
+        //'Car' is abstract; cannot be instantiated
+        //Car car = new Car();
+
+        Vellfire vellfire = new Vellfire("Akio");
+        vellfire.fuelUp();
+
+        Tesla tesla = new Tesla("Elon");
+        tesla.fuelUp();
+
+        AnnaKendrick annaKendrick = new AnnaKendrick();
+        EdSheeran edSheeran = new EdSheeran();
+
+        executePerform(annaKendrick);
+        executePerform(edSheeran);
+
+        executeTellJoke(annaKendrick);
+        //error
+        //executeTellJoke(edSheeran);
+    }
+
+    private void executeTellJoke(Comedian comedian) {
+        comedian.tellJoke();
+    }
+
+    private void executePerform(Artist artist) {
+        artist.perform();
+    }
+
+    private void superAndThis() {
+        Mammal mammal1 = new Mammal("Elephant");
+        Mammal mammal2 = new Bat("Fruit Bat", false);
     }
 
     private void castingIfNeeded() {
@@ -41,7 +83,7 @@ public class Lab07 {
         //can't call animal swim
         //Cannot resolve method 'swim' in 'Animal'
         //animal.swim();
-        
+
         if (animal instanceof Fish) {
             //casting
             ((Fish) animal).swim();
