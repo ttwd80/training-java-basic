@@ -20,7 +20,24 @@ public class Chapter01 {
 
         System.out.println("Create and use singleton classes and immutable classes");
         singletonImmutable();
+        System.out.println();
 
+        System.out.println("Develop code that uses static keyword on initialize blocks, variables, methods, and classes");
+        staticInit();
+    }
+
+    static class Static1 {
+        private String name;
+        static int count;
+
+        static {
+            //init
+            count = 10;
+        }
+
+    }
+
+    private void staticInit() {
 
     }
 
@@ -88,6 +105,7 @@ public class Chapter01 {
         Im3 im3 = new Im3(b);
         System.out.println(im3.getValues());
         im3.getValues().add(30);
+        b.add(50);
         System.out.println(im3.getValues());
 
     }
