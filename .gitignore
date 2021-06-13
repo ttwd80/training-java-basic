@@ -1,2 +1,8 @@
 /out/
 /lib/*.jar
+.idea/libraries/com_zaxxer_HikariCP_4_0_3.xml
+.idea/libraries/com_zaxxer_HikariCP_4_0_3.xml
+.idea/libraries/org_postgresql_postgresql_42_2_21.xml
+.idea/libraries/org_slf4j_slf4j_jdk14_1_8_0_beta4.xml
+.idea/libraries/org_springframework_spring_context_5_3_8.xml
+.idea/libraries/org_springframework_spring_jdbc_5_3_8.xml
