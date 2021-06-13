@@ -7,18 +7,58 @@ public class Lab08 {
     }
 
     private void demo() {
-        System.out.println("Differentiate among checked exceptions, unchecked exceptions, and Errors");
         checkedUncheckedErrors();
     }
 
     private void checkedUncheckedErrors() {
         checkedExceptions();
         uncheckedExceptions();
+        errors();
+    }
+
+    private void errors() {
+
+        try {
+            char[][][][][][][] buffer = new char[1_000][1_000][1_000][1_000][1_000][1_000][1_000];
+            //normally errors are not handled
+        } catch (OutOfMemoryError e) {
+
+        }
+
     }
 
     private void uncheckedExceptions() {
-        
+        //not required to handle unchecked exceptions: not checked
         uncheckedMethod1();
+
+        //not required to handle unchecked exceptions: can still check
+        try {
+            uncheckedMethod1();
+        } catch (UncheckedExceptionA e) {
+
+        }
+
+        //uncheckedMethod2 declares it may throw UncheckedExceptionB
+        //we can catch any exception we like, subclass before parent class
+        try {
+            uncheckedMethod2();
+        } catch (UncheckedExceptionD e) {
+        } catch (UncheckedExceptionA e) {
+        } catch (UncheckedExceptionB e) {
+        } catch (UncheckedExceptionC e) {
+
+        }
+
+        //sample exception 1
+        //parseInt declares it will throw a NumberFormatException
+        int num1 = Integer.parseInt("20");
+
+        try {
+            int num2 = Integer.parseInt("zero");
+        } catch (NumberFormatException e) {
+
+        }
+
     }
 
     private void checkedExceptions() {
@@ -34,9 +74,9 @@ public class Lab08 {
         //subclass should appear before the parent class
         try {
             method1();
-        }catch (ExceptionD e) {
+        } catch (ExceptionD e) {
 
-        }catch (ExceptionA e) {
+        } catch (ExceptionA e) {
 
         }
 
@@ -71,7 +111,7 @@ public class Lab08 {
         try {
             method4();
         } catch (ExceptionD exceptionA) {
-        } catch (ExceptionA|ExceptionB|ExceptionC e) {
+        } catch (ExceptionA | ExceptionB | ExceptionC e) {
         }
 
         //method 4 throws multiple exceptions
@@ -167,12 +207,16 @@ public class Lab08 {
     //it can throw all of then
     //it can throw none of them
     //it can throw some of them
-    private void method4() throws ExceptionA, ExceptionB, ExceptionC, ExceptionD{
+    private void method4() throws ExceptionA, ExceptionB, ExceptionC, ExceptionD {
         throw new ExceptionA();
     }
 
-    private void uncheckedMethod1() throws UncheckedExceptionA{
+    //uncheckedMethod1 declares an UncheckedExceptionA but throws nothing
+    private void uncheckedMethod1() throws UncheckedExceptionA {
     }
 
+    //uncheckedMethod2 declares an UncheckedExceptionA and throws it
+    private void uncheckedMethod2() throws UncheckedExceptionB {
+    }
 
 }

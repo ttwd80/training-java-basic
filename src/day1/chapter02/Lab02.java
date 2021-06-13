@@ -1,6 +1,7 @@
 package day1.chapter02;
 
 import java.util.ArrayList;
+import java.util.Currency;
 import java.util.List;
 
 public class Lab02 {
@@ -29,7 +30,6 @@ public class Lab02 {
 
     void readWriteToObjectField() {
         Lab02 lab = new Lab02();
-
         System.out.println("Reading from object field");
         System.out.println("lab.value = " + lab.value);
 
