@@ -1,6 +1,8 @@
 package day2.ocp.chapter03;
 
 import java.util.*;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
 
 public class Chapter03 {
     public static void main(String[] args) {
@@ -15,6 +17,179 @@ public class Chapter03 {
 
         System.out.println("Create and use ArrayList, TreeSet, TreeMap, and ArrayDeque objects");
         demoDataStructure();
+        System.out.println();
+
+        System.out.println("Use java.util.Comparator and java.lang.Comparable interfaces");
+        demoCompare();
+        System.out.println();
+
+        System.out.println("Collections Streams and Filters");
+        demoStreamFilter();
+        System.out.println();
+
+        System.out.println("Iterate using forEach methods of Streams and List");
+        demoForEach();
+        System.out.println();
+
+        System.out.println("Describe Stream interface and Stream pipeline");
+        System.out.println("Filter a collection by using lambda expressions");
+        System.out.println("Use method references with Streams");
+        demoMethod();
+    }
+
+    private void demoMethod() {
+        Consumer<String> c = s -> System.out.println(s + " -> " + s.length());
+        List<String> a = Arrays.asList("Cat", "Cattle", "Dog", "Apple", "Ball", "Bat", "Mouse", "Corn");
+        a.stream().forEach(c);
+    }
+
+    private void demoForEach() {
+        List<String> a = Arrays.asList("Cat", "Cattle", "Dog", "Apple", "Ball", "Bat", "Mouse", "Corn");
+        a.stream().forEach(s -> System.out.println(s + " -> " + s.length()));
+
+    }
+
+    private void demoStreamFilter() {
+        List<String> a = Arrays.asList("Cat", "Cattle", "Dog", "Apple", "Ball", "Bat", "Mouse", "Corn");
+        System.out.println("No terminal method");
+        a.stream().filter(s -> s.length() > 3).filter(s -> s.startsWith("C")).
+                map(s -> new StringBuilder(s).reverse().toString()).peek(s -> System.out.println(s));
+        System.out.println("Terminal count");
+        a.stream().filter(s -> s.length() > 3).filter(s -> s.startsWith("C")).
+                map(s -> new StringBuilder(s).reverse().toString()).peek(s -> System.out.println(s)).count();
+
+        //bad stream
+        Stream<String> s1 = a.stream();
+        s1.filter(s -> s.startsWith("C"));
+        // error
+        // stream has already been operated upon or closed
+        // System.out.println(s1.count()); ;
+
+        Stream<String> s2 = a.stream();
+        s2 = s2.filter(s -> s.startsWith("C"));
+        // error
+        System.out.println(s2.count()); ;
+    }
+
+    static class Billionaire implements Comparable<Billionaire> {
+        private String name;
+        //long can go up to 9 quadrillion, that is 9 followed by 12 zeroes
+        private long worth;
+
+        public Billionaire(String name, long worth) {
+            this.name = name;
+            this.worth = worth;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public long getWorth() {
+            return worth;
+        }
+
+        public void setWorth(long worth) {
+            this.worth = worth;
+        }
+
+        @Override
+        public int compareTo(Billionaire o) {
+            if (worth == o.worth) {
+                return 0;
+            } else if (worth > o.worth) {
+                return 1;
+            } else {
+                return -1;
+            }
+        }
+
+        @Override
+        public String toString() {
+            return "Billionaire{" +
+                    "name='" + name + '\'' +
+                    ", worth=" + worth +
+                    '}';
+        }
+    }
+
+    static class Country {
+        private String name;
+        private String capital;
+
+        public Country(String name, String capital) {
+            this.name = name;
+            this.capital = capital;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public String getCapital() {
+            return capital;
+        }
+
+        @Override
+        public String toString() {
+            return "Country{" +
+                    "name='" + name + '\'' +
+                    ", capital='" + capital + '\'' +
+                    '}';
+        }
+    }
+
+
+    private void demoCompare() {
+        List<Billionaire> a = new ArrayList<>();
+        // https://en.wikipedia.org/wiki/The_World%27s_Billionaires#2021
+        // June 2021
+        a.add(new Billionaire("Bill Gates",124_000_000_000L));
+        a.add(new Billionaire("Mark Zuckerberg",97_000_000_000L));
+        a.add(new Billionaire("Jeff Bezos",177_000_000_000L));
+        a.add(new Billionaire("Elon Musk",151_000_000_000L));
+        a.add(new Billionaire("Bernard Arnault & family",150_000_000_000L));
+
+        //lets sort, comparator not defined, but class implements comparable
+        System.out.println(a);
+        Collections.sort(a);
+        System.out.println(a);
+
+        List<Country> b = new ArrayList<>();
+        b.add(new Country("Thailand", "Bangkok"));
+        b.add(new Country("Malaysia", "KL"));
+        b.add(new Country("Singapore", "Singapore"));
+        b.add(new Country("Japan", "Tokyo"));
+        System.out.println(b);
+
+        //sort b, error
+        //reason: no instance(s) of type variable(s) T exist so that Country conforms to Comparable<? super T>
+        //System.out.println(b);
+        //Collections.sort(b);
+        //System.out.println(b);
+
+        //we need a comparator to sort something that is not comparable
+        System.out.println("using comparator 1");
+        Comparator<Country> comparator1 = (o1, o2) -> o1.name.compareTo(o2.name);
+        Collections.sort(b, comparator1);
+        System.out.println(b);
+
+        System.out.println("using comparator 2");
+        Comparator<Country> comparator2 = (o1, o2) -> o1.capital.compareTo(o2.capital);
+        Collections.sort(b, comparator2);
+        System.out.println(b);
+
+        System.out.println("billionaire by worth");
+        System.out.println(a);
+        Comparator<Billionaire> comparator3 = (o2, o1) -> o1.name.compareTo(o2.name);
+        Collections.sort(a, comparator3);
+        System.out.println("billionaire by name, reverse");
+        System.out.println(a);
+
 
 
     }
