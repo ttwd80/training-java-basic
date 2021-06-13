@@ -7,7 +7,57 @@ public class Lab08 {
     }
 
     private void demo() {
-        checkedUncheckedErrors();
+        //checkedUncheckedErrors();
+        //NullPointerException, ArithmeticException, ArrayIndexOutOfBoundsException, ClassCastException
+        //Integer b = null;
+        //int a = b;
+
+        String name = null;
+        if (name != null) {
+            System.out.println("name.length() = " + name.length());
+        }
+
+        int num1 = 100;
+        int num2 = 0;
+        if (num2 != 0) {
+            System.out.println("num1 / num2 = " + (num1/num2));
+        }
+
+        //ArrayIndexOutOfBoundsException
+        int[] m = new int[100];
+        m[20] = 9;
+        int k = 100;
+        if (k < m.length) {
+            m[k] = 8;
+        }
+
+        //ClassCastException
+        //1. dalam java, kita boleh buat, baseclass = subclass
+        //base dia ExceptionA, sub dia ExceptionD
+        //ada jugak base dia  ExceptionA, sub dia ExceptionF
+        //2 kalau nak terbalikkan pun boleh
+        //tapi kena cast
+        //ExceptionF eff = (ExceptionF) ed;
+        //ExceptionF eff = something
+        //jadikan something tu, ExceptionF
+        //kalau benda tu memang ExceptionF, takde masalah
+        //kalau ef, takde masalah
+        //kita pakai ed
+        //ed bukan ExceptionF, atau sub-class kepada ExceptionF
+        //tapi kita nak cast dia kepada ExceptionF, jadilah
+        //class cast exception
+        ExceptionA ed = new ExceptionD();
+        ExceptionA ef = new ExceptionF();
+        if (ed instanceof  ExceptionF) {
+            ExceptionF eff = (ExceptionF) ed;
+        }
+
+
+
+
+
+
+        //System.out.println("a = " + a);
     }
 
     private void checkedUncheckedErrors() {
@@ -44,7 +94,8 @@ public class Lab08 {
             uncheckedMethod2();
         } catch (UncheckedExceptionD e) {
         } catch (UncheckedExceptionA e) {
-        } catch (UncheckedExceptionB e) {
+        } catch (IllegalArgumentException e) {
+
         } catch (UncheckedExceptionC e) {
 
         }
