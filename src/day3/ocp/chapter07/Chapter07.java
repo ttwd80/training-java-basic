@@ -1,6 +1,7 @@
 package day3.ocp.chapter07;
 
 import java.time.*;
+import java.time.temporal.ChronoUnit;
 
 public class Chapter07 {
     public static void main(String[] args) {
@@ -26,18 +27,25 @@ public class Chapter07 {
         Period p1 = Period.of(0, 0, 1);
         LocalDateTime t1 = LocalDateTime.of(2020, 1, 1, 0, 2, 15);
         System.out.println("t1 = " + t1);
-        LocalDateTime t2 =  t1.plus(p1);
+        LocalDateTime t2 = t1.plus(p1);
         System.out.println("t2 = " + t2);
 
         Duration d1 = Duration.ofHours(3).plusMinutes(4).plusSeconds(2);
-        LocalDateTime t3 =  t2.plus(d1);
+        LocalDateTime t3 = t2.plus(d1);
         System.out.println("t3 = " + t3);
+
+        System.out.println(t2.isEqual(t2));
+
+        LocalDate xmas = LocalDate.of(2017, 12, 25);
+        LocalDate blackFriday = LocalDate.of(2017, 11, 24);
+        System.out.println(blackFriday.until(xmas, ChronoUnit.WEEKS));
+        System.out.println(ChronoUnit.WEEKS.between(blackFriday, xmas));
     }
 
     private void dstDateTime() {
         ZoneId zone = ZoneId.of("Australia/Sydney");
         LocalDate t1 = LocalDate.of(2020, 4, 5);
-        LocalTime t2 = LocalTime.of(1, 0,0);
+        LocalTime t2 = LocalTime.of(1, 0, 0);
         ZonedDateTime t3 = ZonedDateTime.of(t1, t2, zone);
         for (int i = 0; i < 5; i++) {
             System.out.println(t3.plusHours(i));
@@ -47,7 +55,7 @@ public class Chapter07 {
     private void jdkDateTime() {
         LocalDate t1 = LocalDate.of(2021, Month.MAY, 1);
         LocalTime t2 = LocalTime.of(9, 0, 0);
-        LocalDateTime t3 = LocalDateTime.of(2021, 5, 1, 9, 0,0);
+        LocalDateTime t3 = LocalDateTime.of(2021, 5, 1, 9, 0, 0);
         LocalDateTime t4 = LocalDateTime.of(t1, t2);
     }
 }
