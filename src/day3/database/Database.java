@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.MessageFormat;
 
 public class Database {
     public static void main(String[] args) {
@@ -27,12 +28,31 @@ public class Database {
                 ps = connection.prepareStatement("CREATE TABLE emp (NAME VARCHAR(100) PRIMARY KEY)");
                 ps.execute();
                 ps.close();
-                ps = connection.prepareStatement("INSERT INTO emp VALUES (?)");
-                ps.setString(1, "Alex");
-                ps.execute();
-                ps.close();
+
                 ps = connection.prepareStatement("SELECT COUNT(*) as TOTAL FROM emp");
                 ResultSet rs = ps.executeQuery();
+                if (rs.next()) {
+                    System.out.println("TOTAL is " + rs.getLong("TOTAL"));
+                }
+                rs.close();
+                ps.close();
+
+                ps = connection.prepareStatement("INSERT INTO emp VALUES (?)");
+                String name = "Alex";
+                //String sql = "INSERT INTO emp VALUES ('" + name + "')";
+                ps.setString(1, name);
+                ps.execute();
+                ps.close();
+
+                ps = connection.prepareStatement("INSERT INTO emp VALUES (?)");
+                name = "Zoey";
+                //String sql = "INSERT INTO emp VALUES ('" + name + "')";
+                ps.setString(1, name);
+                ps.execute();
+                ps.close();
+
+                ps = connection.prepareStatement("SELECT COUNT(*) as TOTAL FROM emp");
+                rs = ps.executeQuery();
                 if (rs.next()) {
                     System.out.println("TOTAL is " + rs.getLong("TOTAL"));
                 }
@@ -46,6 +66,7 @@ public class Database {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
             if (connection != null) {
                 try {
                     connection.close();
